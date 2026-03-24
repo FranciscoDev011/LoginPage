@@ -9,7 +9,7 @@ Pretendo continuar atualizando o site durante os estudos de JavaScript buscando 
 ## 🌐 Acesse o site
 
 Veja o projeto online:  
-🔗 [Clique aqui para acessar o site](https://franciscodev011.github.io/TextDrop/) 
+🔗 [Clique aqui para acessar o site](https://franciscodev011.github.io/LoginPage/) 
 
 ## 🔍 Tecnologias utilizadas
 - HTML5  
