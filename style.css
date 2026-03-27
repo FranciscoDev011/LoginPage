@@ -70,8 +70,10 @@ main{
 }
 
 .container-sgp p, a{
+    font-family: var(--fonte-hg);
+    font-size: 18px;
     text-decoration: none;
-    color: #1445D9;
+    color: black;
 }
 
 .container-sgp a:hover{
@@ -118,6 +120,26 @@ main{
 .container-bgd h1, p{
     color: white;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.social-icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.icon img {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(0, 0, 0, 0.691);
+  padding: 4px;
+  border-radius: 20%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 3px 0px;
+
 }
 
 @media (max-width: 1200px){
