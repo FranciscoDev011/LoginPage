@@ -47,16 +47,15 @@ main{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 1200px;
-    height: 800px;
-
+    width: min(1200px, 95vw);
+    height: clamp(500px, 80dvh, 800px);
     display: flex;
     background-color: white;
     border-radius: 8px;
     box-shadow: 1px 1px 10px #03295ba8;
-
     transition: width 0.3s, height 0.3s;
     transition-timing-function: ease;
+    overflow: hidden;
 }
 
 .container h1{
@@ -70,7 +69,19 @@ main{
     font-size: 18px;
 }
 
-.form-sign{
+.container.active .background-login {
+    transform: translateX(-100%);
+}
+
+.container.active .form-register {
+    opacity: 1;
+}
+
+.container.active .form-login {
+    opacity: 0;
+}
+
+.form-login, .form-register{
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
@@ -79,23 +90,27 @@ main{
     height: 100%;
     width: 50%;
     gap: 20px;
+    padding: 0px 80px;
     border-radius: 6px 0px 0px 6px;
+    transition: opacity 1s ease;
+    flex-shrink: 0; 
+    
 }
 
-.form-sign p, 
-.form-sign a{ 
+.form-login p, 
+.form-login a{ 
     font-family: var(--fonte-hg);
     font-size: 18px;
     text-decoration: none;
     color: black;
 }
 
-.form-sign a:hover{
+.form-login a:hover {
     text-decoration: underline;
 }
 
-.form-sign input{
-    width: 75%;
+.form-login input, .form-register input {
+    width: 100%;
     height: 40px;
     border-radius: 8px;
     background-color: rgba(220, 220, 220, 0.573);
@@ -104,7 +119,7 @@ main{
     border-style: double;
 }
 
-.form-sign button{
+.form-login button, .form-register button {
     height: 40px;
     width: 200px;
     border-radius: 8px;
@@ -116,30 +131,37 @@ main{
     transition: 0.3s ease;
 }
 
-.form-sign button:hover{
+.form-login button:hover, .form-register button:hover{
     background-color: var(--click-btn);
     cursor: pointer;
     transition: 0.3s ease;
 }
 
-.container-bgd{
+.form-register {
+    opacity: 0;
+}
+
+.background-login{
+    position: absolute;
     background-color: var(--cor1);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    right: 0;
     height: 100%;
     width: 50%;
     border-radius: 0px 6px 6px 0px;
+    transition: transform 0.5s ease;
 }
 
-.container-bgd h1,
-.container-bgd p{ 
+.background-login h1,
+.background-login p{ 
     color: white;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.28);
 }
 
-.container-bgd > button{
+.background-login > button{
     height: 40px;
     width: 160px;
     margin-top: 40px;
@@ -152,19 +174,19 @@ main{
     transition: 0.3s ease;
 }
 
-.container-bgd > button:hover{
+.background-login > button:hover{
     background-color: var(--click-btn);
     transition: 0.3s ease;
 }
 
-.social-icons {
+.social-icons{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
 }
 
-.icon {
+.icon{
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -177,20 +199,20 @@ main{
                 background 0.25s ease;
 }
 
-.icon img {
+.icon img{
     width: 44px;
     height: 44px;
     display: block;
     transition: all 0.5s ease;
 }
 
-.icon:hover {
+.icon:hover{
     transform: translateY(-6px) scale(1.1);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
     background: var(--icon-hover-bg, rgba(255, 255, 255, 0.18));
 }
 
-.icon:active {
+.icon:active{
     transform: translateY(-2px) scale(0.96);
     transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
@@ -200,63 +222,40 @@ main{
 #icon-github   { --icon-hover-bg: var(--color-github); }
 #icon-linkedin { --icon-hover-bg: var(--color-linkedin); }
 
-@media (max-width: 1200px){
-    .container{
-        min-width: 800px;
-        height: 600px;
+@media (max-width: 1024px){
+    .container {
+        height: clamp(480px, 75dvh, 650px);
     }
 
-    .container h1{
-        font-size: 40px;
-    }
-
-    .container p{
-        font-size: 16px;
-    }
+    .container h1{ font-size: 40px; }
+    .container p{ font-size: 16px; }
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
     .container{
-        min-width: 600px;
-        height: 500px;
+        height: clamp(460px, 80dvh, 560px);
     }
 
-    .container h1{
-        font-size: 30px;
-    }
-
-    .container p{
-        font-size: 14px;
-    }
+    .container h1{ font-size: 30px; }
+    .container p { font-size: 14px; }
 }
 
-@media (max-width: 425px){
+@media (max-width: 480px) {
     .container{
-        min-width: 0;
-        min-width: auto;
-        width: 90%;
-        height: 90%; 
+        width: 95vw;
+        height: 90dvh;
         flex-direction: column-reverse;
-        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.440);
     }
 
-    .container h1{
-        font-size: 30px;
-    }
-
-    .container p{
-        font-size: 14px;
-    }
-
-   .form-sign{
-        height: 55%;
+    .form-login{
+        height: 60%;
         width: 100%;
-        border-radius: 0px 0px 6px 6px;
+        border-radius: 0 0 6px 6px;
     }
 
-    .container-bgd{
-        height: 45%;
+    .background-login{
+        height: 40%;
         width: 100%;
-        border-radius: 6px 6px 0px 0px;
+        border-radius: 6px 6px 0 0;
     }
 }
