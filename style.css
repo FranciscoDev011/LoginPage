@@ -60,7 +60,6 @@ main{
 
 .container h1{
     font-size: 60px;
-    margin: 2px;
     font-family: var(--fonte-hl);
 }
 
@@ -89,7 +88,7 @@ main{
     align-items: center;
     height: 100%;
     width: 50%;
-    gap: 20px;
+    gap: 16px;
     padding: 0px 80px;
     border-radius: 6px 0px 0px 6px;
     transition: opacity 1s ease;
@@ -111,7 +110,7 @@ main{
 
 .form-login input, .form-register input {
     width: 100%;
-    height: 40px;
+    height: 44px;
     border-radius: 8px;
     background-color: rgba(220, 220, 220, 0.573);
     font-size: 18px;
@@ -164,7 +163,7 @@ main{
 .background-login > button{
     height: 40px;
     width: 160px;
-    margin-top: 40px;
+    margin-top: 30px;
     border: 2px solid rgba(255, 255, 255, 0.714);
     border-radius: 8px;
     background-color: var(--cor1);
@@ -200,8 +199,8 @@ main{
 }
 
 .icon img{
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     display: block;
     transition: all 0.5s ease;
 }
@@ -236,26 +235,90 @@ main{
         height: clamp(460px, 80dvh, 560px);
     }
 
-    .container h1{ font-size: 30px; }
-    .container p { font-size: 14px; }
+    .container h1{ font-size: 34px; }
+    .container p { font-size: 16px; }
+    .background-login p { 
+        text-align: center;
+        padding: 20px;
+    }
+
+    .form-login, .form-register{
+        padding: 0px 40px;
+    }
+
+    .icon img{
+    width: 38px;
+    height: 38px;
+    }
+
+    .background-login > button{
+    margin-top: 0px;
+    }
 }
+
 
 @media (max-width: 480px) {
     .container{
-        width: 95vw;
+        width: 90vw;
         height: 90dvh;
-        flex-direction: column-reverse;
     }
 
-    .form-login{
-        height: 60%;
+    .form-login, .form-register{
+        height: 50%;
         width: 100%;
-        border-radius: 0 0 6px 6px;
+        transform: translateY(100%);
+    }
+
+    .form-register{
+        bottom: 0;
     }
 
     .background-login{
-        height: 40%;
+        height: 50%;
         width: 100%;
-        border-radius: 6px 6px 0 0;
     }
+
+    .background-login > button{
+        display: none;
+    }
+
+    .tabs-mobile{
+        position: relative;
+        display: flex;
+        background: rgba(0, 0, 0, 0.100);
+        border-radius: 12px;
+        border: 1px solid white;
+        padding: 4px;
+        width: 220px;
+    }
+
+    .tab-btn{
+        position: relative;
+        flex: 1;
+        padding: 10px;
+        background: transparent;
+        border: none;
+        border-radius: 9px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        color: white;
+        transition: color 0.2s;
+    }
+
+    .tab-bkg{
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: calc(50% - 4px);
+        height: calc(100% - 8px);
+        background: var(--cor2);
+        border-radius: 9px;
+        transition: transform 0.3s cubic-bezier(0.34, 1.2, 0.64, 1);
+    }
+
 }
+
+
+
+
