@@ -216,6 +216,10 @@ main{
     transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
+.tabs-mobile{
+    display: none;
+}
+
 #icon-google   { --icon-hover-bg: var(--color-google); }
 #icon-facebook { --icon-hover-bg: var(--color-facebook); }
 #icon-github   { --icon-hover-bg: var(--color-github); }
