@@ -13,7 +13,7 @@ bgButton.addEventListener('click', () => {
     } else {
         bgH1.textContent   = 'Bem Vindo!';
         bgP.textContent    = 'Registre sua conta agora para aproveitar todos os recursos!';
-        bgButton.textContent = 'Registrar';
+        bgButton.textContent = 'Cadastrar';
     }
 });
 
